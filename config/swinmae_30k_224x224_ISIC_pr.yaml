@@ -1,0 +1,53 @@
+# 数据集配置
+datasets: "isic"
+num_classes: 2
+data_path: "/media/ext_disk/xcm/data/ISIC"
+save_path: "/media/ext_disk/xcm/paper/checkpoint/ISIC_checkpoint/ISIC_SwinMAE_30k_224x224_ms_pr"
+name: "swinmae_30k_224x224_ISIC"
+ckpt: None
+cuda: True
+train_crop_size: [224,224]
+test_crop_size: [224,224]
+crop_val: False
+batch_size: 32
+num_workers: 4
+in_channels: 3
+mask_ratio: 0.75
+norm_pix_loss: False
+
+contr_weight: 0.0001
+
+# 模型配置
+model: "swinmae_contr"
+variant: "swinmae_contr"
+pretrained: False
+seed: 1
+# 模型训练 配置
+total_itrs: 30000
+step_size: 500
+
+# 优化器训练配置
+# opt: "sgd"
+# lr: 0.001
+# weight_decay: 0.0005
+# momentum: 0.9
+# epochs: 400
+# sched: "cosine"
+# warmup_epochs: 0
+# warmup_lr: 0.00001
+# cooldown_epochs: 10
+# min_lr: 0.000001
+
+
+opt: "adamw"
+lr: 0.0001
+weight_decay: 0.05
+momentum: 0.9
+epochs: 400
+sched: "cosine"
+warmup_epochs: 0
+warmup_lr: 0.00001
+cooldown_epochs: 10
+min_lr: 0.000001
+
+

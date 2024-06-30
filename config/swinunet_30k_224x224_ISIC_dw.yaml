@@ -1,0 +1,36 @@
+# 数据集配置
+datasets: "sup_part_isic"
+num_classes: 2
+data_path: "/media/ext_disk/xcm/data/ISIC"
+save_path: "/media/ext_disk/xcm/paper/checkpoint/ISIC_checkpoint/ISIC_SwinUnet_30k_224x224_ms_dw_0.5_0.0003"
+name: "swinunet_30k_224x224_ISIC"
+ckpt: None
+cuda: True
+train_crop_size: [224,224]
+test_crop_size: [224,224]
+crop_val: False
+batch_size: 32
+num_workers: 4
+in_channels: 3
+label_num: 0.5
+
+# 模型配置
+model: "swinunet_isic"
+variant: "swinunet_isic"
+pretrained: False
+seed: 1
+total_itrs: 30000
+step_size: 500
+
+
+# 优化器训练配置
+opt: "adamW"
+lr: 0.0003
+weight_decay: 0.05
+momentum: 0.9
+sched: "cosine"
+warmup_epochs: 1
+warmup_lr: 0.00001
+min_lr: 0.000001
+cooldown_epochs: 10
+

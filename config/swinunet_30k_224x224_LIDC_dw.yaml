@@ -1,0 +1,36 @@
+# 数据集配置
+datasets: "sup_part_lidc"
+num_classes: 2
+data_path: "/media/ext_disk/xcm/data/LIDC"
+save_path: "/media/ext_disk/xcm/paper/checkpoint/LIDC_checkpoint/LIDC_SwinUnet_30k_224x224_ms_dw_0.2_0.0003"
+name: "swinunet_30k_224x224_LIDC"
+ckpt: None
+cuda: True
+train_crop_size: [224,224]
+test_crop_size: [224,224]
+crop_val: False
+batch_size: 32
+num_workers: 4
+in_channels: 3
+label_num: 0.2
+
+# 模型配置
+model: "swinunet_lidc"
+variant: "swinunet_lidc"
+pretrained: False
+seed: 1
+total_itrs: 30000
+step_size: 1500
+
+
+# 优化器训练配置
+opt: "adamW"
+lr: 0.0003 #0.0003
+weight_decay: 0.05
+momentum: 0.9
+sched: "cosine"
+warmup_epochs: 1
+warmup_lr: 0.00001
+min_lr: 0.000001
+cooldown_epochs: 10
+
